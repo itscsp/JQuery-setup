@@ -12,7 +12,7 @@ $(document).ready(function(){
    */
    
    $('#btn1').on('click', function()  {
-	  $('.para').innerText().css('color':'red');
+	  $('.para').css('color':'red ');
    });
    
 });
