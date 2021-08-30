@@ -19,3 +19,16 @@ header{
 	margin:auto;
 	padding:10px; 
 }
+
+.myclass{
+	color: yellow;
+	font-weight: 700;
+	font-family:'Times New Roman', Times, serif;
+	background-color:black;
+	padding:10px 0px;
+	text-align:center;
+}
+
+.border{
+	border: 2px solid red;
+}

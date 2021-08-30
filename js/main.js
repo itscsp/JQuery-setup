@@ -1,128 +1,106 @@
 $(document).ready(function(){
-	//__________________________________________________________
-   //EVENTS IN JQUERY
-   /*
-   $('#btn1').click(function(){
-	   alert('Button 1 clicked')
-   });
-    
-	//#SYNTAX ONE
+	$('h1.h1').css({'color':'red'});
+/*
+	//TOGGLE CSS CLASS
+	$('.btn1').click(function(){
+		$('.para1').toggleClass('myclass');
+	});
 	
-   $("#btn2").on('click', function(){
-	   
-	   alert('Button 2 clicked')
-   });
-   
-   //#SYNTAX TWO #MORE PREFARABLE TYPE OF SYNTAX
-   
-   $('#btn1').on('click', function()  {
-	  $('.para h4,p,h3,ol').css('color','red ');
-   });
-   
-   //#CLICK EVENTS
-   
-   $('#btn2').on('click', function()  {
-	  $('.para').hide();
-   });
-   
-   
-   $('#btn1').on('click', function(){
-	  $('.para').show();
-   });
-   
-   $('#btn2').on('click', function()  {
-	  $('.para').toggle();
-   });
-   
-   
-   
-   //#DOUBLE CLICK EVENTS
-   
-   $("#btn1,#btn2").on('dblclick', function(){
-	  $('.para').toggle();
-   });
-   
-   
-   //#HOVER EVENTS 
-   //"NOTE" THIS EVENT IS NOT ACTUALY A JS EVENTS IT WON'T WORK IN SYNTAX 2
-   //AND THIS ONE IS COMBINATION OF "mouseenter" AND "mouseleave" EVENTS
-   
-   $('#btn1,#btn2').hover(function(){
-	  $('.para').toggle(); 
-   });
-   
-   
-   //#MOUSEENTER AND MOUSELEAVE
-	$('#btn2').on('mouseenter', function(){
-		$('.para').hide();
+	//ADD OR REMOVE CSS CLASS
+	$('.btn1').click(function(){
+		$('p').addClass('border');
+	})
+
+	$('.btn2').click(function(){
+		$('p').removeClass('border');
+	});
+
+	//to add into html
+	$('.method').html('<p>Hello Jquery</p>')
+
+	alert($('.method').text());
+
+
+	//APPEND AT BACK
+	$('#addb').on('click', function() {
+
+		$('ul').append('<li>Append list Item</li>');
+	})	
+
+	//APPEND AT FRENT
+	$('#addf').on('click', function() {
+		$('ul').prepend('<li>Prepend list Item</li>');
+	})	
+
+	//APPENDTO
+	$('#append').click(function() {
+		$('.para1').appendTo('.para2');
+	})
+
+	//PREPEND TO
+	$('#prepend').click(function() {
+		$('.parab2').prependTo('.parab1');
 	})
 	
-	$('#btn2').on('mouseleave', function(){
-		$('.para').show();
+	//BEFORE AND AFTER
+	$('#beforeandafter').click(function() {
+		$('ul').before('<h4>Before</h4>')
+		$('ul').after('<h4>After</h4>')
 	})
-   
-   
-   //#MOUSEDOWN AND MOUSEUP
-   $('#btn1').on('mousedown', function(){
-	  $('.para').toggle(); 
-   });
-   $('#btn1').on('mouseup', function(){
-	  $('.para').toggle(); 
-   });
-   
-  
-   
-   //ACCESING EVENT OBJECT IN CLICK EVENT
-   
-   //NOTE """ THERE MORE YOU CAN EXPORE FROM THESE (e) objects """
-   
-   
-   $('#btn1').on('click', function(e){
-	   let body = e.currentTarget.parentElement.parentElement;
-	   $(body).css("color","red")
-   });
-    
-	//MOUSEMOVE WITH INTERESTING RESULT
-	$(document).on('mousemove', function(e) {
-		$('.coords').html('Coords: Y : '+e.clientY+"px"+" X: "+e.clientX+"px");
-	});
-   
-   
-   //__________________________________________________________
-   
-   //Form EVENT
-   $('input').focus(function(){
-	   alert('focus');
-   });
- 
-   //"this indicates current Element"
-   $('input').focus(function(){
-	  $(this).css('background','pink'); 
-   });
-   
-   $('input').blur(function(){
-	  $(this).css('background','white'); 
-   });
-     
-	 
-	$('input').keyup(function(e){
-		$('.formdata').html(e.target.value)
-	});
-	
-	
-	//CHANGE EVENT
-	$('select#gender').change(function(e){
-		alert(e.target.value);
-	});
+
+	//EMPTY() REMOVE ALL TAG AND CONTENTS INSIDE "UL"
+	$('#empty').click(function() {
+		$('ul').empty();
+	})
+
+	//DETACH() REMOVE ALL TAG AND CONTENTS INCLUDE "UL"
+	$('#detach').click(function() {
+		$('ul').detach();
+	})
+
 	*/
+	//DOM manipulation add attributes
+	/*
+	$('a').attr('target', '_blank');
 	
-	$('#form').submit(function(e){
-		e.preventDefault();
-		let name = $('input#name').val();
-		let email = $('input#email').val();
-		let gerder = $('gender,option').val();
-		alert(name);
-		alert(email);
-		alert(gerder);
-	});
+
+	alert($('a').attr('href'));
+	
+
+	//WRAP TAGS
+	$('#wrap').on('click', function(){
+		$('p').wrap('<h1>');
+	})
+
+	//WRAP ALL TAGS
+	$('#wrapall').on('click', function(){
+		$('p').wrapAll('<h1>');
+	})
+	*/
+	//THIS ONE ADD ELEMENT TYPED INSIDE INPUT FORM
+	$('#newItem').on('keyup', function(e){
+		var code = e.which;
+
+		if(code == 13){
+			e.preventDefault();
+			$('ul').append('<li>'+e.target.value+'</li>');
+		}
+
+	})
+
+	//**********
+	// ARRAY TRAVERSING
+
+	var myarr = ['chethu', 'peethu', 'appe', 'pratham', 'ammi', 'manish', 'pranish'];
+
+	$.each(myarr, function(index, value){
+		$('.family').append('<li>'+value+'</li>');
+	})
+	
+	//MAKE ARRAY FROM DOM ELEMWNTS
+	var newArr = $('ul.list li').toArray();
+	$.each(newArr, function(index, value) {
+		console.log(value.innerHTML);
+	})
+
 });
