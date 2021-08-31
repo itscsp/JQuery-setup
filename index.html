@@ -3,49 +3,88 @@
 <head>
 	<title>Jquery Set Up</title>
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
-	<script type="text/javascript" src="/js/Jquery-3.6.0.js"></script>
-	<script type="text/javascript" src="/js/main.js"></script>
+	
+	
 </head>
 <body>
 	<header>
-		<h1>Jquery Crash Cource</h1>
-	
+		<h3>Jquery Crash Cource | Effects and Animation</h3>
 	</header>
 	<div id="container">
-		<h1 id="heading1">Heading One</h1>
-		<p id="para1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id lectus luctus, condimentum sapien faucibus, bibendum ligula. In hac habitasse platea dictumst. <span>Quisque ullamcorper</span> congue consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		<h3>Fode Effects</h3>
+		<button id="btnFadeOut">Fade Out</button>
+		<button id="btnFadeIn">Fade In</button>
+		<button id="btnFadeTog">Fade Toggle</button>
+		
+		<hr>
+		<div class="d-flex">
 
-		<h1 class="heading2">Heading Two</h1>
-		<p class="para2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id lectus luctus, condimentum sapien faucibus, bibendum ligula. In hac habitasse platea dictumst. <span>Quisque ullamcorper</span> congue consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			<!-- FADE OUT-->
+			<div class="parent1">
+				<div id="box1" class="box">
+					<h1>Defualt fade!</h1>
+				</div>
+				<div id="box2" class="box">
+					<h1>slow Fade!</h1>
+				</div>
+				<div id="box3" class="box">
+					<h1>With 3000 ms!</h1>
+				</div>
+			</div>
 
-		<ul id="list">
-			<li>List Items</li>
-			<li>List Items</li>
-			<li>List Items</li>
-			<li>List Items</li>
-			<li>List Items</li>
-			<li>List Items</li>
-			<li>List Items</li>
-
-		</ul>
-
-		<div class="buttons">
-
-			<input type="button" value="button 1" >
-			<input type="submit" value="submit">
-			<input type="text" value="text" />
 
 		</div>
+	
+		<hr>
+		<h3>Slide Effects</h3>
+		<button id="btnslideUp">Slide Up</button>
+		<button id="btnslidenDown">Slide Down</button>
+		<button id="btnslideogTog">Slide Toggle</button>
+		<button id="btnslideStop">Stop</button>
+		
+		<hr>
+		<div class="d-flex">
+
+			<!-- slide OUT-->
+			<div class="parent2">
+				<div id="box1" class="box">
+					<h1>Defualt fade!</h1>
+				</div>
+				
+			</div>
 
 
-		<a target="_blank" href="http://google.com/">GOOGLE</a>
-		<a target="_blank" href="http://yahoo.com/">Yahoo</a>
+		</div>
+		<hr>
+		<h3>Slide Effects</h3>
+		<button id="btnmoveright">Move Right</button>
+		<button id="btnmoveleft">Move left</button>
+		<button id="btnaround">Slide Around</button>
+		<pre>
+Is it possible to manipulate ALL CSS properties with the animate() method?
+
+Yes, almost! However, there is one important thing to remember: all property names must be camel-cased when used with the animate() method: You will need to write paddingLeft instead of padding-left, marginRight instead of margin-right, and so on.
+
+Also, color animation is not included in the core jQuery library.
+If you want to animate color, you need to download the Color Animations plugin from jQuery.com.
+		</pre>
+		
+		<hr>
+		<div>
+
+			<!-- slide OUT-->
+			<div class="parent3">
+				<div id="box1" class="box2">
+					move
+				</div>
+				
+			</div>
 
 
-
+		</div>
 	</div>
-	
 
-	
+	<script type="text/javascript" src="/js/jquery-3.6.0.js"></script>
+	<script type="text/javascript" src="/js/main.js"></script>
 </body>
 </html>
