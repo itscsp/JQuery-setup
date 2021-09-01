@@ -1,99 +1,54 @@
 $(document).ready(function() {
 
-    //FADE OUT
-    $('#btnFadeOut').on('click', function(){
-        $('.parent1 #box1').fadeOut();
-        $('.parent1 #box2').fadeOut("slow");
-        $('.parent1 #box3').fadeOut(3000, function(){
-            $('#btnFadeOut').text("it's Gone");
-        });
-    })
-
-    //FODE IN
-    $('#btnFadeIn').on('click', function(){
-        $('.parent1 #box1').fadeIn();
-        $('.parent1 #box2').fadeIn('slow');
-        $('.parent1 #box3').fadeIn(3000, function(){
-            $('#btnFadeIn').text("I'am back");
-        });
-
-    })
-
-    //TOGGLE
-    $('#btnFadeTog').on('click', function(){
-        $('.parent1 #box1').fadeToggle();
-        $('.parent1 #box2').fadeToggle();
-        $('.parent1 #box3').fadeToggle(3000, function(){
-            $('#btnFadeIn').text("I'am back");
-        });
-
-    })
-
-    //SLIDE DOWN
-    $('#btnslideUp').on('click', function(){
-        $('.parent2 #box1').slideUp(1000);
-
+    //AJAX Requested
+    $('#result').load('../test.html', function(responseTxt, statusTxt, xhr) {//LOAD IS AJAX FUNCTION
+        if(statusTxt == "success"){
+            alert('AJAX is working...')
+        } else if(statusTxt == "error"){
+            alert('AJAX is not working...'+ xhr.statusText);
+        }
+    });
     
-    })
 
-    //slideUp
-    $('#btnslidenDown').on('click', function(){
-        $('.parent2 #box1').slideDown(3000);
-    })
+    $.get('../test2.html', function(data){
+        $('#getresult').html(data);
+    });
 
-    //slideToggle
-    $('#btnslideogTog').on('click', function(){
-        $('.parent2 #box1').slideToggle();
-    })
-
-  
-    $('#btnslideStop').on('click', function(){
-        $('.parent2 #box1').stop();
-    })
-
-    //MOVE ANIMATION
-    //MOVE RIGHT
-    $('#btnmoveright').on('click', function(){
-        $('.parent3 #box1').animate({
-            left:"50%",
-            lineHeight:"300px",
-            height:"300px",
-            width:"300px",
-            opacity:"0.5"
-        });
-    })
-
-
-    //MOVE LEFT
-    $('#btnmoveleft').on('click', function(){
-        $('.parent3 #box1').animate({
-            left:"0px",
-            height:"100px",
-            width:"100px",
-            opacity:"1",
-            lineHeight:"100px",
-        });
-    })
-
-    //MOVE AROUND
-    $('#btnaround').on('click', function(){
-        var box = $('.parent3 #box1');
-        box.animate({
-            left:500
+    //GETING JSON DATA
+    $.getJSON('../data.json', function(data){
+        $.each(data, function(index, value){
+            $('#jsondata').append('<li>'+value.firstName+'</li>');
+            $('#jsondata').prepend('<li>'+value.email+'</li>');
         })
-        box.animate({
-            top:500
-        })
-        box.animate({
-            left:0,
-            top:500
-        })
-        box.animate({
-            left:0,
-            top:0
+    }) 
+
+    //GETTING JSON DATA FROM API
+    $.ajax({
+        method: 'GET',
+        url: 'https://jsonplaceholder.typicode.com/posts',
+        dataType: 'json'
+    }).done(function(data){
+        console.log(data);
+        $.map(data, function(post, i){
+            $('#APIresult').append('<h3>'+post.title+'</h3><p>'+post.body+'</p><hr><hr>');
+
         })
     })
 
+    //PUTING DATA INTO API
+    $('#postdata').submit(function(e){
+        e.preventDefault();
 
+    var  title = $('#title').val();
+        var body = $('#body').val();
+        var url = $(this).attr('action');
 
-})
+        $.post(url, {title: title, body: body})
+            .done(function(data){
+                console.log('Post Saved');
+                console.log(data);
+            });
+
+    });
+
+});

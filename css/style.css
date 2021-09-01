@@ -19,28 +19,3 @@ header{
 	margin:auto;
 	padding:10px; 
 }
-
-.d-flex{
-	display:flex;
-	justify-content: center;
-}
-
-.box{
-	background: #333;
-	color:white;
-	width: 500px;
-	height: 90px;
-	padding:40px;
-	text-align:center;
-	margin: 10px 10px 10px 0px;
-}
-
-.box2{
-	background: red;
-	width:100px;
-	color: white;
-	height: 100px;
-	position: relative;
-	text-align:center;
-	line-height:100px;
-}

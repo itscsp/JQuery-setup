@@ -8,80 +8,36 @@
 </head>
 <body>
 	<header>
-		<h3>Jquery Crash Cource | Effects and Animation</h3>
+		<h3>Jquery Crash Cource | Ajax </h3>
 	</header>
 	<div id="container">
-		<h3>Fode Effects</h3>
-		<button id="btnFadeOut">Fade Out</button>
-		<button id="btnFadeIn">Fade In</button>
-		<button id="btnFadeTog">Fade Toggle</button>
-		
-		<hr>
-		<div class="d-flex">
+		<pre>What is AJAX full form?
+Image result for AJAX full form
+Ajax (also AJAX /ˈeɪdʒæks/; short for "Asynchronous JavaScript and XML") <br>is a set of web development techniques that uses various web technologies on the client-side to create asynchronous web applications</pre>
+<hr>
+			<div id="result">
 
-			<!-- FADE OUT-->
-			<div class="parent1">
-				<div id="box1" class="box">
-					<h1>Defualt fade!</h1>
-				</div>
-				<div id="box2" class="box">
-					<h1>slow Fade!</h1>
-				</div>
-				<div id="box3" class="box">
-					<h1>With 3000 ms!</h1>
-				</div>
 			</div>
-
-
-		</div>
-	
-		<hr>
-		<h3>Slide Effects</h3>
-		<button id="btnslideUp">Slide Up</button>
-		<button id="btnslidenDown">Slide Down</button>
-		<button id="btnslideogTog">Slide Toggle</button>
-		<button id="btnslideStop">Stop</button>
-		
-		<hr>
-		<div class="d-flex">
-
-			<!-- slide OUT-->
-			<div class="parent2">
-				<div id="box1" class="box">
-					<h1>Defualt fade!</h1>
-				</div>
+			<hr>
+			<div id="getresult">
 				
 			</div>
+			<hr>
+			<ul id="jsondata">
+				<h1>Getting data from JSON</h1>
+			</ul>
+			<hr>
+			<h3>AJAX POST METHOD</h3>
+			<form id="postdata" action="https://jsonplaceholder.typicode.com/posts">
+				<input type="text" name="title" id="title" placeholder="Enter your title"><br><hr>
+				<textarea placeholder="body" id="body"></textarea><br><hr>
+				<input type="submit" name="submit" value="submit">
+			</form>
 
-
-		</div>
-		<hr>
-		<h3>Slide Effects</h3>
-		<button id="btnmoveright">Move Right</button>
-		<button id="btnmoveleft">Move left</button>
-		<button id="btnaround">Slide Around</button>
-		<pre>
-Is it possible to manipulate ALL CSS properties with the animate() method?
-
-Yes, almost! However, there is one important thing to remember: all property names must be camel-cased when used with the animate() method: You will need to write paddingLeft instead of padding-left, marginRight instead of margin-right, and so on.
-
-Also, color animation is not included in the core jQuery library.
-If you want to animate color, you need to download the Color Animations plugin from jQuery.com.
-		</pre>
-		
-		<hr>
-		<div>
-
-			<!-- slide OUT-->
-			<div class="parent3">
-				<div id="box1" class="box2">
-					move
-				</div>
-				
+			<div id="APIresult">
+				<h1>Getting data from API</h1>
 			</div>
 
-
-		</div>
 	</div>
 
 	<script type="text/javascript" src="/js/jquery-3.6.0.js"></script>
